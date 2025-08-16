@@ -164,19 +164,19 @@ USE_TZ = True
 # STATIC_URL = "/static/"
 # STATIC_ROOT = BASE_DIR / "staticfiles"
 
-STATIC_URL = 'static/'
-# Added manually
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,"static"),
-]
-# Optional (recommended) for Whitenoise
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATIC_URL = 'static/'
+# # Added manually
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR,"static"),
+# ]
+# # Optional (recommended) for Whitenoise
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Static files
-# STATIC_URL = "/static/"
-# STATIC_ROOT = BASE_DIR / "staticfiles"  # This is where collectstatic will put files
-# STATICFILES_DIRS = [BASE_DIR / "static"]  # Your local static files folder
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"  # This is where collectstatic will put files
+STATICFILES_DIRS = [BASE_DIR / "static"]  # Your local static files folder
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # Default primary key field type
