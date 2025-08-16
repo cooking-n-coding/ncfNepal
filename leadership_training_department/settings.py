@@ -11,9 +11,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
-# import os
-# from pathlib import Path
+
+import os
+from pathlib import Path
 import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,7 +32,7 @@ SECRET_KEY = 'django-insecure-=v15(m4euzo^#y1kmxj*&+com=v^%oa7-hohv*i2mz9@kfmxqb
 DEBUG = os.getenv("DEBUG", "0") == "1"
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ["*"]  # later we’ll add your real domain here
+ALLOWED_HOSTS = ["ncfnepal.up.railway.app"]  # later we’ll add your real domain here
 
 CSRF_TRUSTED_ORIGINS = ["https://*.up.railway.app"]
 
@@ -95,12 +97,33 @@ WSGI_APPLICATION = 'leadership_training_department.wsgi.application'
 #         'PORT': '3306',      # or the port on which your MySQL server is listening
 #     }
 # }
+# DATABASES = {
+# import os
+# import dj_database_url
+# import os
+
+# DATABASES = {
+#     'default': dj_database_url.parse(os.environ.get('DATABASE_URL') or os.environ.get('DATABASE_PUBLIC_URL'))
+# }
+import os
+import dj_database_url
+
 DATABASES = {
-    "default": dj_database_url.config(
-        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
-        conn_max_age=600,
-    )
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ.get('PGDATABASE', 'railway'),
+#         'USER': os.environ.get('PGUSER', 'postgres'),
+#         'PASSWORD': os.environ.get('PGPASSWORD', 'iGlqDQgBdoUzSgXwHgAZtcFmClfzoHEU'),
+#         'HOST': os.environ.get('PGHOST', 'postgres.railway.internal'),
+#         'PORT': os.environ.get('PGPORT', '5432'),
+#     }
+# }
+
+
 
 
 # Password validation
@@ -136,14 +159,25 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
-STATIC_URL = "static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
+# STATIC_URL = "static/"
+# STATIC_ROOT = BASE_DIR / "staticfiles"
+# STATIC_URL = "/static/"
+# STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # STATIC_URL = 'static/'
 # # Added manually
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR,"static"),
 # ]
+# # Optional (recommended) for Whitenoise
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# Static files
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"  # This is where collectstatic will put files
+STATICFILES_DIRS = [BASE_DIR / "static"]  # Your local static files folder
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
