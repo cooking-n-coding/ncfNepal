@@ -11,174 +11,103 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
-
-import os
-from pathlib import Path
 import dj_database_url
 
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# ------------------------------
+# BASE DIRECTORY
+# ------------------------------
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=v15(m4euzo^#y1kmxj*&+com=v^%oa7-hohv*i2mz9@kfmxqb'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = os.getenv("DEBUG", "0") == "1"
-
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ["ncfnepal.up.railway.app"]  # later we’ll add your real domain here
-
+# ------------------------------
+# SECURITY
+# ------------------------------
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY",
+    "django-insecure-dev-key"  # only for local/dev
+)
+DEBUG = os.environ.get("DEBUG", "0") == "1"
+ALLOWED_HOSTS = ["ncfnepal.up.railway.app", "*"]  # add your real domain later
 CSRF_TRUSTED_ORIGINS = ["https://*.up.railway.app"]
 
-
-# Application definition
-
+# ------------------------------
+# APPLICATIONS
+# ------------------------------
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    "whitenoise.runserver_nostatic",  # add this line before 'django.contrib.staticfiles'
-    'django.contrib.staticfiles',
-
-    # Your app
-    'myapp',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "whitenoise.runserver_nostatic",  # must be BEFORE staticfiles
+    "django.contrib.staticfiles",
+    "myapp",  # your app
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # add this
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # MUST be right after SecurityMiddleware
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'leadership_training_department.urls'
+ROOT_URLCONF = "leadership_training_department.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,"templates"),],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / "templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ]
         },
-    },
+    }
 ]
 
-WSGI_APPLICATION = 'leadership_training_department.wsgi.application'
+WSGI_APPLICATION = "leadership_training_department.wsgi.application"
 
-
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'ltdf',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': 'localhost',  # or the hostname where your MySQL server is running
-#         'PORT': '3306',      # or the port on which your MySQL server is listening
-#     }
-# }
-# DATABASES = {
-# import os
-# import dj_database_url
-# import os
-
-# DATABASES = {
-#     'default': dj_database_url.parse(os.environ.get('DATABASE_URL') or os.environ.get('DATABASE_PUBLIC_URL'))
-# }
-import os
-import dj_database_url
-
+# ------------------------------
+# DATABASE (Railway Postgres)
+# ------------------------------
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.environ.get('PGDATABASE', 'railway'),
-#         'USER': os.environ.get('PGUSER', 'postgres'),
-#         'PASSWORD': os.environ.get('PGPASSWORD', 'iGlqDQgBdoUzSgXwHgAZtcFmClfzoHEU'),
-#         'HOST': os.environ.get('PGHOST', 'postgres.railway.internal'),
-#         'PORT': os.environ.get('PGPORT', '5432'),
-#     }
-# }
-
-
-
-
-# Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
-
+# ------------------------------
+# PASSWORD VALIDATION
+# ------------------------------
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.1/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+# ------------------------------
+# INTERNATIONALIZATION
+# ------------------------------
+LANGUAGE_CODE = "en-us"
+TIME_ZONE = "UTC"
 USE_I18N = True
-
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-# STATIC_URL = "static/"
-# STATIC_ROOT = BASE_DIR / "staticfiles"
-# STATIC_URL = "/static/"
-# STATIC_ROOT = BASE_DIR / "staticfiles"
-
-# STATIC_URL = 'static/'
-# # Added manually
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR,"static"),
-# ]
-# # Optional (recommended) for Whitenoise
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
+# ------------------------------
+# STATIC FILES (CSS, JS, IMAGES)
+# ------------------------------
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [BASE_DIR / "static"]   # local static folder
-STATIC_ROOT = BASE_DIR / "staticfiles"     # where collectstatic will put files
+STATICFILES_DIRS = [BASE_DIR / "static"]  # local folder
+STATIC_ROOT = BASE_DIR / "staticfiles"    # collectstatic output folder
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# ------------------------------
+# DEFAULT AUTO FIELD
+# ------------------------------
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
