@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 import dj_database_url
+from dotenv import load_dotenv
+
+# ------------------------------
+# LOAD ENV VARIABLES
+# ------------------------------
+load_dotenv()  # loads from .env file
 
 # ------------------------------
 # BASE DIRECTORY
@@ -26,7 +32,7 @@ SECRET_KEY = os.environ.get(
     "django-insecure-dev-key"  # only for local/dev
 )
 DEBUG = os.environ.get("DEBUG", "0") == "1"
-ALLOWED_HOSTS = ["ncfnepal.up.railway.app", "*"]  # add your real domain later
+ALLOWED_HOSTS = ["ncfnepal.up.railway.app", "127.0.0.1", "localhost"]
 CSRF_TRUSTED_ORIGINS = ["https://*.up.railway.app"]
 
 # ------------------------------
@@ -75,11 +81,22 @@ TEMPLATES = [
 WSGI_APPLICATION = "leadership_training_department.wsgi.application"
 
 # ------------------------------
-# DATABASE (Railway Postgres)
+# DATABASE (Railway Postgres / fallback SQLite)
 # ------------------------------
-DATABASES = {
-    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
-}
+DATABASE_URL = os.environ.get("DATABASE_URL")
+
+if DATABASE_URL:
+    DATABASES = {
+        "default": dj_database_url.parse(DATABASE_URL, conn_max_age=600, ssl_require=True)
+    }
+else:
+    # fallback for local dev if .env missing
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 
 # ------------------------------
 # PASSWORD VALIDATION
@@ -111,3 +128,4 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # DEFAULT AUTO FIELD
 # ------------------------------
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
