@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Environments
+env/
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Node
+node_modules/
+
+Static/media collected files
+/staticfiles/
+# /media/
+static/video/
+*.mp4
+
+
+# OS files
+.DS_Store
+Thumbs.db

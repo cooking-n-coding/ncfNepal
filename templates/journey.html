@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+{% block title %}Our Journey-Leadership Training Department{% endblock title %}
+{% block body %}
+{% load static %}
+<!--Heading Section-->
+<div class="container">
+  <div class="journeysection py-4">
+    <h2 class="text-center mb-3 d-flex justify-content-center align-items-center gap-3">
+      <i class="fas fa-map-signs text-success"></i>
+      <span class="fw-bold">Enjoy Our Memories</span>
+      <i class="fas fa-photo-film text-success"></i>
+    </h2>
+    <h5 class="text-center mb-3">Lets go through our journey</h5>
+  </div>
+</div>
+<!--Image Section Of Our Journey-->
+<div class="container journey-container py-3">
+  <h2 class="text-center text-success fw-bold mb-4">Our Journey in Photos</h2>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+    <div class="col" data-aos="zoom-in" data-aos-delay="100">
+      <div class="journey-card position-relative overflow-hidden rounded shadow">
+        <img src="{% static 'Images/Blog1.jpg' %}" class="img-fluid journey-img" alt="Journey Photo">
+        <div class="journey-overlay d-flex justify-content-center align-items-center">
+          <p class="text-white text-center m-0">Milestone 1</p>
+        </div>
+      </div>
+    </div>
+    <div class="col" data-aos="zoom-in" data-aos-delay="200">
+      <div class="journey-card position-relative overflow-hidden rounded shadow">
+        <img src="{% static 'Images/2help.jpg' %}" class="img-fluid journey-img" alt="Journey Photo">
+        <div class="journey-overlay d-flex justify-content-center align-items-center">
+          <p class="text-white text-center m-0">Milestone 2</p>
+        </div>
+      </div>
+    </div>
+    <div class="col" data-aos="zoom-in" data-aos-delay="300">
+      <div class="journey-card position-relative overflow-hidden rounded shadow">
+        <img src="{% static 'Images/program1.jpg' %}" class="img-fluid journey-img" alt="Journey Photo">
+        <div class="journey-overlay d-flex justify-content-center align-items-center">
+          <p class="text-white text-center m-0">Milestone 3</p>
+        </div>
+      </div>
+    </div>
+    <div class="col" data-aos="zoom-in" data-aos-delay="400">
+      <div class="journey-card position-relative overflow-hidden rounded shadow">
+        <img src="{% static 'Images/4help.jpg' %}" class="img-fluid journey-img" alt="Journey Photo">
+        <div class="journey-overlay d-flex justify-content-center align-items-center">
+          <p class="text-white text-center m-0">Milestone 4</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Button to go in ministries-->
+<div class="container text-center mb-5">
+    <a href="/ministries" class="btn btn-ministries mt-3">Learn About Our Ministries</a>
+</div>
+<!--Separator-->
+<div class="container-separate"></div>
+<!--Article Section-->
+<div class="container-xl">
+ <div class="container my-5">
+  <h2 class="text-center articlesection-heading mb-3">A strategic move in LTD ministry</h2>
+  <div class="author-and-date">
+    <p>Manoj Pradhananga (Director of LTD/NCFN Nepal)</p>
+    <p>Date: March 2025</p>
+  </div>
+  <div class="clearfix">
+    <!-- Floating Image Left -->
+    <img src="{% static 'LTD Staff/director.jpg' %}" 
+         alt="Team Image" 
+         class="journeyimg-float img-fluid rounded-3 shadow-lg float-start me-4 mb-3" 
+         style="max-width: 350px;">
+
+    <!-- Blog Text -->
+    <p class="blog-text text-justify">
+      <strong>LTD</strong> is soon going to complete 20 years of 
+  ministry. It is an indigenous church leadership training ministry to equip leaders
+  women, pastors, lay leaders and families. We 
+  have changed our strategy according to the 
+  context. Initially, all our trainings were residential. During Covid, we moved to online 
+  mode and now we are moving to modular 
+  mode. <br> 
+  The training impact evaluation clearly indicates the need to move to modular mode of 
+  training where the pastors and lay leaders from local churches 
+  come together and learn to develop the local churches both in 
+  quality and quantity. Thus, LTD is now focusing on the local 
+  church community as a training hub. By and large there is a 
+  strong church community that comprise different church groups 
+  and denominations in every region of Nepal. <br>
+  Secondly, LTD ministry is involving more in community engage
+  ment. How can LTD ministry impact the local community in part
+  nership with the local churches where LTD has extended the ministry? This is the reason, now, that LTD is focusing its resources in 
+  a few local areas. <br>
+  Thirdly, LTD is going to play a supporting role. LTD has served the 
+  Nepali church for nearly 2 decades. Now, we see Nepali churches 
+  are able to organize and financially support church leadership 
+  training. So, LTD will support the local churches in the areas of 
+  teaching only. The local churches have to organize and manage 
+  financially. We believe this is a genuine partnership with the local 
+  church and a real growth of the organization that helps it to be 
+  sustainable.  
+  Family Ministry 
+  Finally, we are grateful to God who continues to lead us even in 
+  the time of change and grateful to each partner who continues to 
+  support us to fulfill His call through the ministry of LTD/NCF 
+  Nepal. 
+    </p>
+    </div>
+  </div>
+  <!--Button to readmore articles-->
+  <div class="container text-center mb-5">
+      <a href="/article" class="btn btn-ministries mt-3">Read More Articles</a>
+  </div>
+</div>
+<!--Separator-->
+<div class="container-separate"></div>
+<!--Review of our Journery-->
+<div class="container py-5">
+  <h2 class="text-center mb-5 text-success fw-bold">What Our Followers Say</h2>
+  <div class="row g-4">
+
+    <!-- Review Card 1 -->
+    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+      <div class="card review-card shadow-xl p-4">
+        <div class="d-flex align-items-center mb-3">
+          <img src="{% static 'Images/follower1.png' %}" alt="Follower 1" class="rounded-circle me-3" width="60" height="60">
+          <div>
+            <h6 class="mb-0 fw-bold">Sarah Thapa</h6>
+            <small class="text-muted">Participant - Church Leadership Training</small>
+          </div>
+        </div>
+        <p class="review-text">Attending the Church Leadership Training changed my life. It empowered me to lead with confidence and compassion.</p>
+      </div>
+    </div>
+
+    <!-- Review Card 2 -->
+    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+      <div class="card review-card shadow-xl p-4">
+        <div class="d-flex align-items-center mb-3">
+          <img src="{% static 'Images/follower1.png' %}" alt="Follower 2" class="rounded-circle me-3" width="60" height="60">
+          <div>
+            <h6 class="mb-0 fw-bold">Rajan Karki</h6>
+            <small class="text-muted">Volunteer - Family Ministry</small>
+          </div>
+        </div>
+        <p class="review-text">Volunteering with the Family Ministry has been a rewarding experience. It is inspiring to witness positive changes in our community.</p>
+      </div>
+    </div>
+    <!-- Review Card 2 -->
+    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+      <div class="card review-card shadow-xl p-4">
+        <div class="d-flex align-items-center mb-3">
+          <img src="{% static 'Images/follower1.png' %}" alt="Follower 2" class="rounded-circle me-3" width="60" height="60">
+          <div>
+            <h6 class="mb-0 fw-bold">Priya Rai</h6>
+            <small class="text-muted">Volunteer - Women's Ministry</small>
+          </div>
+        </div>
+        <p class="review-text">Volunteering in the Women's Ministry has been a transformative journey where women are empowered and strengthened through our collective efforts.</p>
+      </div>
+    </div>
+    <!-- Review Card 2 -->
+    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+      <div class="card review-card shadow-xl p-4">
+        <div class="d-flex align-items-center mb-3">
+          <img src="{% static 'Images/follower1.png' %}" alt="Follower 2" class="rounded-circle me-3" width="60" height="60">
+          <div>
+            <h6 class="mb-0 fw-bold">Ram Kalikot</h6>
+            <small class="text-muted">Volunteer - Community Outreach</small>
+          </div>
+        </div>
+        <p class="review-text">Being a part of this ministry has given me purpose. Serving the community brought me closer to my faith.</p>
+      </div>
+    </div>
+
+  </div>
+ </div>
+</div>
+<!-- End of Review Section -->
+<!-- Footer Section-->
+ <footer class="footer-section bg-light text-dark pt-5 pb-4">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <!-- Contact Info -->
+      <div class="col-md-4">
+        <h5 class="fw-bold mb-3 text-success">Connect With Us</h5>
+        <ul class="list-unstyled">
+          <li><i class="bi bi-telephone-fill text-success me-2"></i> +977-01-5408509</li>
+          <li><i class="bi bi-geo-alt-fill text-success me-2"></i> Kumaripati -2, Lalitpur, Nepal</li>
+          <li><i class="bi bi-envelope-fill text-success me-2"></i> ltdncf2007@gmail.com</li>
+          <li><i class="bi bi-mailbox2 text-success me-2"></i> P.O. Box 8975, EPC 2919, Kathmandu</li>
+        </ul>
+      </div>
+
+      <!-- Google Map -->
+      <div class="col-md-4 text-center">
+        <img src="{% static 'Images/location.png' %}" class="img-fluid rounded-3 shadow-sm" alt="Map Location">
+      </div>
+
+      <!-- Subscribe and Social -->
+      <div class="col-md-4 mx-0.5">
+        <h5 class="fw-bold mb-3 text-success">Stay Updated with Us</h5>
+        <p class="small text-muted mb-2">Be the first to know about our upcoming events.</p>
+        <form class="d-flex mb-3">
+          <input type="email" class="form-control rounded-5" placeholder="Enter your email address">
+          <a href="/about" class="btn btn-signup rounded-5">Register</a>
+        </form>
+        <h6 class="fw-semibold">Follow Us On</h6>
+        <a href="https://www.facebook.com/ltd2007ncfn" target="_blank" class="me-3 fs-4 text-success"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.youtube.com/channel/UCa5mNa4fPToN9-jINoBzlLQ" target="_blank" class="fs-4 text-danger"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Signature -->
+  <div class="container mt-4">
+    <div class="d-flex justify-content-end">
+      <p class="small text-muted mb-0">Created by <strong>Aims Webservice</strong> &copy; 2025</p>
+    </div>
+  </div>
+</footer>
+
+{% endblock body %}

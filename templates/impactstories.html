@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Impact Stories - Leadership Training{% endblock title %}
+
+{% block body %}
+<!-- PAGE HEADING -->
+<div class="container my-5">
+  <div class="ministry-section py-4"> 
+        <h2 class="text-center mb-3 ">Impact Stories</h2>
+        <h5 class="text-center mb-5 ">
+         Explore the impactful stories of lives transformed through our ministries.
+        </h5>
+    </div>
+
+    <!-- MINISTRY CARDS WITH INTERNAL LINKS -->
+    <div class="row g-4">
+  <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+      <a href="/churchleadershipblog#church-leadership" class="text-decoration-none">
+        <div class="card shadow-sm h-100">
+          <img src="{% static 'Images/leadership.jpg' %}" class="card-img-top rounded-top" alt="Church Leadership">
+          <div class="card-body">
+            <h5 class="card-title text-success">Church Leadership</h5>
+            <p class="card-text text-dark">Training leaders to serve with integrity and vision.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-6" data-aos="fade-up">
+      <a href="/womenministryblog#women-ministry" class="text-decoration-none">
+        <div class="card shadow-sm h-100">
+          <img src="{% static 'Images/program1.jpg' %}" class="card-img-top rounded-top" alt="Women Ministry">
+          <div class="card-body">
+            <h5 class="card-title text-success">Women Ministry</h5>
+            <p class="card-text text-dark">Empowering women through faith and fellowship.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+      <a href="/familyministryblog#family-ministry" class="text-decoration-none">
+        <div class="card shadow-sm h-100">
+          <img src="{% static 'Images/program3.jpg' %}" class="card-img-top rounded-top" alt="Family Ministry">
+          <div class="card-body">
+            <h5 class="card-title text-success">Family Ministry</h5>
+            <p class="card-text text-dark">Strengthening families through biblical guidance.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+      <a href="/communityministryblog#community-ministry" class="text-decoration-none">
+        <div class="card shadow-sm h-100">
+          <img src="{% static 'Images/5help.jpg' %}" class="card-img-top rounded-top" alt="Family Ministry">
+          <div class="card-body">
+            <h5 class="card-title text-success">Community Ministry</h5>
+            <p class="card-text text-dark">Strengthening communities through biblical guidance.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer Section-->
+ <footer class="footer-section bg-light text-dark pt-5 pb-4">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <!-- Contact Info -->
+      <div class="col-md-4">
+        <h5 class="fw-bold mb-3 text-success">Connect With Us</h5>
+        <ul class="list-unstyled">
+          <li><i class="bi bi-telephone-fill text-success me-2"></i> +977-01-5408509</li>
+          <li><i class="bi bi-geo-alt-fill text-success me-2"></i> Kumaripati -2, Lalitpur, Nepal</li>
+          <li><i class="bi bi-envelope-fill text-success me-2"></i> ltdncf2007@gmail.com</li>
+          <li><i class="bi bi-mailbox2 text-success me-2"></i> P.O. Box 8975, EPC 2919, Kathmandu</li>
+        </ul>
+      </div>
+
+      <!-- Google Map -->
+      <div class="col-md-4 text-center">
+        <img src="{% static 'Images/location.png' %}" class="img-fluid rounded-3 shadow-sm" alt="Map Location">
+      </div>
+
+      <!-- Subscribe and Social -->
+      <div class="col-md-4 mx-0.5">
+        <h5 class="fw-bold mb-3 text-success">Stay Updated with Us</h5>
+        <p class="small text-muted mb-2">Be the first to know about our upcoming events.</p>
+        <form class="d-flex mb-3">
+          <input type="email" class="form-control rounded-5" placeholder="Enter your email address">
+          <a href="/about" class="btn btn-signup rounded-5">Register</a>
+        </form>
+        <h6 class="fw-semibold">Follow Us On</h6>
+        <a href="https://www.facebook.com/ltd2007ncfn" target="_blank" class="me-3 fs-4 text-success"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.youtube.com/channel/UCa5mNa4fPToN9-jINoBzlLQ" target="_blank" class="fs-4 text-danger"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Signature -->
+  <div class="container mt-4">
+    <div class="d-flex justify-content-end">
+      <p class="small text-muted mb-0">Created by <strong>Aims Webservice</strong> &copy; 2025</p>
+    </div>
+  </div>
+</footer>
+{% endblock body %}
+

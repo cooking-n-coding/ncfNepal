@@ -1,0 +1,38 @@
+/* Event Popup Styling */
+.event-popup-modal {
+  background: #ffffff;
+  border-radius: 1.2rem;
+  border: none;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease-in-out;
+}
+
+.event-popup-modal:hover {
+  transform: scale(1.01);
+}
+
+.event-img {
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.event-details h4 {
+  font-size: 1.5rem;
+}
+
+.event-details p {
+  font-size: 1rem;
+  color: #444;
+}
+
+.btn-outline-success {
+  transition: 0.3s ease-in-out;
+}
+
+.btn-outline-success:hover {
+  background-color:#a90b10   ;
+  color: white;
+  border-color: #11721d;
+}

@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% block title %}Contact us - Leadership Training Department{% endblock title %}
+{% block body %}
+{% load static %}
+<!-- Contact Section Heading -->
+<div class="container">
+  <div class="contactsection py-4 text-center">
+    <h2 class="text-success fw-bold mb-3">Connect with Us</h2>
+    <h5 class="text-black">We value your voice. Reach out to join, support, or ask us anything.</h5>
+  </div>
+</div>
+
+<!-- Contact Information -->
+<div class="container py-3">
+  <div class="row text-center text-md-start gy-3">
+    <div class="col-md-3">
+      <i class="bi bi-telephone-fill text-success me-2"></i><strong> Phone:</strong><br> +977-01-5408509
+    </div>
+    <div class="col-md-3">
+      <i class="bi bi-geo-alt-fill text-success me-2"></i><strong> Address:</strong><br> Kumaripati -2, Lalitpur, Nepal
+    </div>
+    <div class="col-md-3">
+      <i class="bi bi-envelope-fill text-success me-2"></i><strong> Email:</strong><br> ltdncf2007@gmail.com
+    </div>
+    <div class="col-md-3">
+      <i class="bi bi-mailbox2 text-success me-2"></i><strong> P.O. Box:</strong><br> 8975, EPC 2919, Kathmandu
+    </div>
+  </div>
+</div>
+
+<!-- Contact Form -->
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="p-4 shadow rounded-4 bg-light" data-aos="fade-up" data-aos-duration="1000">
+        <h4 class="fw-bold text-success text-center mb-4">"For Inquiry"</h4>
+
+        <form id="contactForm" method="POST" action="{% url 'saveEnquiry' %}" novalidate>
+          {% csrf_token %}
+
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <input type="text" class="form-control rounded-3" name="firstName" placeholder="First Name" required>
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control rounded-3" name="lastName" placeholder="Last Name" required>
+            </div>
+          </div>
+
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <input type="email" class="form-control rounded-3" name="email" placeholder="Email Address" required>
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control rounded-3" name="phone" placeholder="Contact Number" required>
+            </div>
+          </div>
+
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <label for="ageInput" class="form-label">Age</label>
+              <div class="input-group">
+                <input type="number" class="form-control rounded-start" id="ageInput" name="age" placeholder="Enter Age (18–60)">
+                <select class="form-select rounded-end" onchange="document.getElementById('ageInput').value=this.value">
+                  <option value="">Choose</option>
+                  {% for i in age_range %}
+                    <option value="{{ i }}">{{ i }}</option>
+                  {% endfor %}
+                  <option value="60+">60+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="occupationInput" class="form-label">Occupation</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded-start" id="occupationInput" name="occupationInput" placeholder="Enter Occupation">
+                <select class="form-select rounded-end" onchange="document.getElementById('occupationInput').value=this.value">
+                  <option value="">Choose</option>
+                  <option value="Student">Student</option>
+                  <option value="Teacher">Teacher</option>
+                  <option value="Businessman">Businessman</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <textarea class="form-control rounded-3" name="message" rows="5" placeholder="Write your message..." required></textarea>
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-sendmsg px-5 rounded-5">Send Message</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Google Map Embed -->
+<div class="container-xl mb-5 ">
+  <h5 class="text-center fw-bold text-success mb-3">Find Us Here</h5>
+  <div class="ratio ratio-16x9 rounded-4 shadow">
+    <iframe
+      src="https://www.google.com/maps?q=Kumaripati,+Lalitpur,+Nepal&output=embed"
+      width="100%" height="450" style="border:0;" allowfullscreen=""
+      loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="footer-section bg-light text-dark pt-5 pb-4">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-md-4">
+        <h5 class="fw-bold mb-3 text-success">Connect With Us</h5>
+        <ul class="list-unstyled">
+          <li><i class="bi bi-telephone-fill text-success me-2"></i> +977-01-5408509</li>
+          <li><i class="bi bi-geo-alt-fill text-success me-2"></i> Kumaripati -2, Lalitpur, Nepal</li>
+          <li><i class="bi bi-envelope-fill text-success me-2"></i> ltdncf2007@gmail.com</li>
+          <li><i class="bi bi-mailbox2 text-success me-2"></i> P.O. Box 8975, EPC 2919, Kathmandu</li>
+        </ul>
+      </div>
+
+      <div class="col-md-4 text-center">
+        <img src="{% static 'Images/location.png' %}" class="img-fluid rounded-3 shadow-sm" alt="Map Location">
+      </div>
+
+      <div class="col-md-4 mx-0.5">
+        <h5 class="fw-bold mb-3 text-success">Stay Updated with Us</h5>
+        <p class="small text-muted mb-2">Be the first to know about our upcoming events.</p>
+        <form class="d-flex mb-3">
+          <input type="email" class="form-control rounded-5" placeholder="Enter your email address">
+          <a href="/about" class="btn btn-signup rounded-5">Register</a>
+        </form>
+        <h6 class="fw-semibold">Follow Us On</h6>
+        <a href="https://www.facebook.com/ltd2007ncfn" target="_blank" class="me-3 fs-4 text-success"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.youtube.com/channel/UCa5mNa4fPToN9-jINoBzlLQ" target="_blank" class="fs-4 text-danger"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-4">
+    <div class="d-flex justify-content-end">
+      <p class="small text-muted mb-0">Created by <strong>Aims Webservice</strong> &copy; 2025</p>
+    </div>
+  </div>
+</footer>
+
+{% endblock body %}
