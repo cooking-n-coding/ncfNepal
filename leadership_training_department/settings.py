@@ -172,10 +172,9 @@ USE_TZ = True
 # # Optional (recommended) for Whitenoise
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# Static files
 STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"  # This is where collectstatic will put files
-STATICFILES_DIRS = [BASE_DIR / "static"]  # Your local static files folder
+STATICFILES_DIRS = [BASE_DIR / "static"]   # local static folder
+STATIC_ROOT = BASE_DIR / "staticfiles"     # where collectstatic will put files
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
